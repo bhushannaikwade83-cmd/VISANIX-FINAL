@@ -1,5 +1,6 @@
 import { useScene } from './useScene.js'
 import { Traveler, Consultant } from '../components/People.jsx'
+import WalkingCharacter from '../components/WalkingCharacter.jsx'
 
 export default function Scene6Airport() {
   const ref = useScene((tl) => {
@@ -65,6 +66,10 @@ export default function Scene6Airport() {
 
       <div style={{ position: 'absolute', left: '-8%', bottom: '10%', width: '80px' }}>
         <Consultant />
+      </div>
+
+      <div style={{ position: 'absolute', right: '8%', bottom: '8%', width: '400px', height: '400px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
+        <WalkingCharacter scale={0.8} speed={0.02} />
       </div>
 
       <div className="s6-walker s6-traveler" style={{ position: 'absolute', bottom: '6%', left: '6%' }}>
