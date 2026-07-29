@@ -69,7 +69,7 @@ export function Character3D({ type = 'traveler', pose = 'idle', className = '' }
 
     // load Mixamo character
     const loader = new GLTFLoader()
-    const modelUrl = './models/character.gltf'
+    const modelUrl = '/models/character.gltf'
 
     loader.load(
       modelUrl,

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
+import Scene0Video from './scenes/Scene0Video.jsx'
 import Scene1Dream from './scenes/Scene1Dream.jsx'
 import Scene2Meet from './scenes/Scene2Meet.jsx'
 import Scene3Documents from './scenes/Scene3Documents.jsx'
@@ -50,6 +51,7 @@ export default function App() {
         </nav>
       </header>
       <main id="story">
+        <Scene0Video />
         <Scene1Dream />
         <Scene2Meet />
         <Scene3Documents />

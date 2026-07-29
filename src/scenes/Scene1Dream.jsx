@@ -37,17 +37,8 @@ export default function Scene1Dream() {
   }, { end: '+=100%' })
 
   return (
-    <section ref={ref} className="scene s1-hero" aria-label="Dream to travel">
-      {/* full-screen video background */}
-      <video
-        ref={videoRef}
-        className="s1-video"
-        src="/scene1-hero.mp4"
-        preload="metadata"
-        playsInline
-        muted
-        crossOrigin="anonymous"
-      />
+    <section ref={ref} className="scene s1-hero" aria-label="Dream to travel" style={{ background: '#000' }}>
+      {/* Video disabled temporarily for Scene0 testing */}
 
       {/* overlay gradient for text readability */}
       <div className="s1-overlay" />
