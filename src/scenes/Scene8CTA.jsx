@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { useScene } from './useScene.js'
 
-// change this to your business inbox
 const CONTACT_EMAIL = 'digitrixmedia05@gmail.com'
 
-export default function Scene8CTA() {
+export default function Scene8CTA({ onExploreWebsite }) {
   const [showModal, setShowModal] = useState(false)
 
   const ref = useScene(
@@ -12,7 +11,8 @@ export default function Scene8CTA() {
       tl.from('.s8-logo', { scale: 0, rotate: -30, duration: 0.8, ease: 'back.out(1.6)' })
       tl.from('.s8-copy h2', { y: 60, opacity: 0, duration: 0.8 }, 0.4)
       tl.from('.s8-copy p', { y: 40, opacity: 0, duration: 0.6 }, 0.7)
-      tl.from('.cta-buttons .btn', { y: 50, opacity: 0, stagger: 0.15, duration: 0.6, ease: 'back.out(1.5)' }, 1)
+      // Animate buttons in WITHOUT changing opacity (they start visible)
+      tl.from('.cta-buttons button, .cta-buttons a', { y: 50, duration: 0.6, ease: 'back.out(1.5)' }, 1)
       tl.to({}, { duration: 0.8 })
     },
     { end: '+=120%' },
@@ -39,21 +39,35 @@ export default function Scene8CTA() {
     <section ref={ref} id="cta" className="scene s8" aria-label="Start your journey">
       <div className="orb orb-1" />
       <div className="orb orb-2" />
-      <div className="scene-inner" style={{ flexDirection: 'column' }}>
-        <div className="scene-copy s8-copy" style={{ position: 'relative' }}>
+      <div className="scene-inner">
+        <div className="scene-copy s8-copy">
           <div className="s8-logo">VN</div>
           <h2>Start Your Global Journey Today</h2>
           <p>Book a free consultation and let our experts map your route abroad.</p>
+          
           <div className="cta-buttons">
-            <button className="btn btn-primary" type="button" onClick={() => setShowModal(true)}>
+            <button 
+              className="btn btn-primary" 
+              type="button" 
+              onClick={() => setShowModal(true)}
+            >
               Book Consultation
             </button>
+
             <a
               className="btn btn-ghost"
               href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Visa Application — VisaNex')}`}
             >
               Apply Now
             </a>
+
+            <button 
+              className="btn btn-secondary" 
+              type="button" 
+              onClick={onExploreWebsite}
+            >
+              Explore Full Website
+            </button>
           </div>
         </div>
       </div>
@@ -65,7 +79,7 @@ export default function Scene8CTA() {
               ×
             </button>
             <h3>Book a Free Consultation</h3>
-            <p>Tell us about your plans — we&apos;ll get back within 24 hours.</p>
+            <p>Tell us about your plans — we'll get back within 24 hours.</p>
             <form onSubmit={handleBookingSubmit}>
               <label>
                 Full Name

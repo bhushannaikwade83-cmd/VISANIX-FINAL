@@ -1,66 +1,149 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
-import Scene0Video from './scenes/Scene0Video.jsx'
-import Scene1Dream from './scenes/Scene1Dream.jsx'
-import Scene2Meet from './scenes/Scene2Meet.jsx'
-import Scene3Documents from './scenes/Scene3Documents.jsx'
-import Scene4Processing from './scenes/Scene4Processing.jsx'
-import Scene5Approved from './scenes/Scene5Approved.jsx'
-import Scene6Airport from './scenes/Scene6Airport.jsx'
-import Scene7Abroad from './scenes/Scene7Abroad.jsx'
+import ScrollVideoMain from './components/ScrollVideoMain.jsx'
 import Scene8CTA from './scenes/Scene8CTA.jsx'
+import Navigation from './components/website/Navigation.jsx'
+import Footer from './components/website/Footer.jsx'
+import Home from './pages/Home.jsx'
+import About from './pages/About.jsx'
+import Values from './pages/Values.jsx'
+import VisaServices from './pages/VisaServices.jsx'
+import Destinations from './pages/Destinations.jsx'
+import Apostille from './pages/Apostille.jsx'
+import Corporate from './pages/Corporate.jsx'
+import Trouvaille from './pages/Trouvaille.jsx'
+import FAQ from './pages/FAQ.jsx'
+import Contact from './pages/Contact.jsx'
 import './story.css'
+import './website-pages.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function App() {
+function usePreloadAll() {
+  const [pct, setPct] = useState(0)
+  const [ready, setReady] = useState(false)
+
   useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.12, smoothWheel: true })
-    lenis.on('scroll', ScrollTrigger.update)
-    const raf = (time) => lenis.raf(time * 1000)
-    gsap.ticker.add(raf)
-    gsap.ticker.lagSmoothing(0)
-
-    // top scroll-progress bar
-    const progress = gsap.to('.scroll-progress', {
-      scaleX: 1,
-      ease: 'none',
-      scrollTrigger: { start: 0, end: 'max', scrub: 0.3 },
+    const urls = allFrameUrls()
+    let loaded = 0
+    let cancelled = false
+    urls.forEach((src) => {
+      const img = new Image()
+      img.onload = img.onerror = () => {
+        if (cancelled) return
+        loaded++
+        setPct(Math.round((loaded / urls.length) * 100))
+        if (loaded === urls.length) setReady(true)
+      }
+      img.src = src
     })
-
     return () => {
-      progress.scrollTrigger?.kill()
-      progress.kill()
-      gsap.ticker.remove(raf)
-      lenis.destroy()
+      cancelled = true
     }
   }, [])
 
+  return { pct, ready }
+}
+
+function allFrameUrls() {
+  const urls = []
+  const sequences = { main: 438 }
+  for (const [dir, count] of Object.entries(sequences)) {
+    for (let i = 1; i <= count; i++) {
+      urls.push(`/frames/${dir}/f_${String(i).padStart(3, '0')}.jpg`)
+    }
+  }
+  return urls
+}
+
+function LoadingScreen({ pct }) {
   return (
-    <>
-      <div className="scroll-progress" />
-      <header className="site-header">
-        <span className="site-logo">
-          Visa<span className="logo-accent">Nex</span>
-        </span>
-        <nav>
-          <a href="#story">Story</a>
-          <a href="#cta">Apply</a>
-        </nav>
-      </header>
-      <main id="story">
-        <Scene0Video />
-        <Scene1Dream />
-        <Scene2Meet />
-        <Scene3Documents />
-        <Scene4Processing />
-        <Scene5Approved />
-        <Scene6Airport />
-        <Scene7Abroad />
-        <Scene8CTA />
-      </main>
-    </>
+    <div className="app-loading">
+      <span className="app-loading-logo">
+        Visa<span className="logo-accent">Nex</span>
+      </span>
+      <div className="app-loading-bar">
+        <div className="app-loading-fill" style={{ width: `${pct}%` }} />
+      </div>
+      <span className="app-loading-pct">{pct}%</span>
+    </div>
+  )
+}
+
+function ScrollStory({ onExploreWebsite }) {
+  return (
+    <div className="scroll-story-container">
+      <ScrollVideoMain />
+      <Scene8CTA onExploreWebsite={onExploreWebsite} />
+    </div>
+  )
+}
+
+function WebsiteApp({ currentPage, onNavigate }) {
+  const pages = {
+    'home': Home,
+    'about': About,
+    'values': Values,
+    'visa-services': VisaServices,
+    'destinations': Destinations,
+    'apostille': Apostille,
+    'corporate': Corporate,
+    'trouvaille': Trouvaille,
+    'faq': FAQ,
+    'contact': Contact
+  }
+
+  const PageComponent = pages[currentPage] || Home
+
+  return (
+    <div className="website-container">
+      <Navigation currentPage={currentPage} onNavigate={onNavigate} />
+      <PageComponent />
+      <Footer />
+    </div>
+  )
+}
+
+export default function App() {
+  const { pct, ready } = usePreloadAll()
+  const [showWebsite, setShowWebsite] = useState(false)
+  const [currentPage, setCurrentPage] = useState('home')
+
+  useEffect(() => {
+    if (!ready) return
+
+    const lenis = new Lenis()
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000)
+    })
+    gsap.ticker.lagSmoothing(0)
+
+    return () => {
+      gsap.ticker.remove()
+      lenis.destroy()
+    }
+  }, [ready])
+
+  useEffect(() => {
+    if (showWebsite) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [showWebsite])
+
+  if (!ready) {
+    return <LoadingScreen pct={pct} />
+  }
+
+  return (
+    <div className="app">
+      {!showWebsite ? (
+        <ScrollStory onExploreWebsite={() => setShowWebsite(true)} />
+      ) : (
+        <WebsiteApp currentPage={currentPage} onNavigate={setCurrentPage} />
+      )}
+    </div>
   )
 }
