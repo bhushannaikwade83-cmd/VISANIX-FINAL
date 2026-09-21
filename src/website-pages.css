@@ -625,14 +625,82 @@ section p {
   margin: 1.5rem 0;
 }
 
-/* RESPONSIVE */
+/* ===== TABLET RESPONSIVE (768px and below) ===== */
 @media (max-width: 768px) {
+  .page {
+    background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+  }
+
+  .page-header {
+    padding: 3rem 1rem;
+  }
+
   .page-header h1 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+  }
+
+  .page-header p {
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+    min-height: 60vh;
   }
 
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: 1.2rem;
+  }
+
+  .tagline {
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+  }
+
+  .brand-message {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    margin: 1.5rem 0;
+  }
+
+  .hero-buttons {
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  section h2 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin-bottom: 1.8rem;
+  }
+
+  section h3 {
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  }
+
+  section p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .intro {
+    padding: 3rem 1rem;
+  }
+
+  .intro h2 {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+  }
+
+  .intro p {
+    font-size: 1rem;
+    line-height: 1.75;
   }
 
   .services-grid,
@@ -642,36 +710,317 @@ section p {
   .approach-grid,
   .cares-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card,
+  .visa-type-card,
+  .region-card,
+  .care-card,
+  .approach-card,
+  .featured-destination {
+    padding: 2rem 1.5rem;
   }
 
   .contact-grid,
   .architecture-box {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+
+  .btn-large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .faq-question {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .care-letter {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+  }
+}
+
+/* ===== MOBILE RESPONSIVE (480px and below) ===== */
+@media (max-width: 480px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+  }
+
+  .page-header {
+    padding: 2.5rem 1rem;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.05);
+  }
+
+  .page-header::before {
+    width: 300px;
+    height: 300px;
+    top: -80px;
+    right: -80px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .page-header p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    margin: 0.5rem 0;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+    min-height: 55vh;
+  }
+
+  .hero::before {
+    width: 300px;
+    height: 300px;
+    top: -120px;
+    right: -120px;
+  }
+
+  .hero::after {
+    width: 250px;
+    height: 250px;
+    bottom: -50px;
+    left: -120px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 5.5vw, 2.8rem);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .tagline {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .brand-message {
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+    margin: 1.2rem 0;
   }
 
   .hero-buttons {
+    gap: 0.8rem;
+    margin-top: 2rem;
     flex-direction: column;
   }
 
   .hero-buttons .btn {
     width: 100%;
+    padding: 1rem 1.6rem;
+    font-size: 0.9rem;
   }
-}
 
-@media (max-width: 480px) {
   section {
-    padding: 1.5rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
   section h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.6rem, 4.5vw, 2.3rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  section h3 {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  section p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    padding: 2.5rem 1rem;
+  }
+
+  .intro h2 {
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+  }
+
+  .intro p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .services-grid,
+  .visa-types-grid,
+  .regions-grid,
+  .featured-grid,
+  .approach-grid,
+  .cares-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .service-card,
+  .visa-type-card,
+  .region-card,
+  .care-card,
+  .approach-card,
+  .featured-destination {
+    padding: 1.8rem 1.3rem;
+    border-radius: 14px;
+  }
+
+  .service-card:hover,
+  .visa-type-card:hover,
+  .region-card:hover,
+  .care-card:hover,
+  .approach-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .contact-grid,
+  .architecture-box {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .btn {
+    padding: 0.95rem 1.8rem;
+    font-size: 0.88rem;
+    border-radius: 11px;
+    letter-spacing: 0.2px;
+    min-height: 48px;
+  }
+
+  .btn-large {
+    padding: 1rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .faq-question {
+    padding: 1rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .faq-answer {
+    padding: 1rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .care-letter {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .destination-icon {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .contact-form,
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .info-item {
+    margin-bottom: 1.2rem;
+  }
+
+  .info-item h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Touch-friendly spacing */
+  .btn {
+    transition: all 0.3s ease;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  /* Ensure text doesn't get too small */
+  body {
+    min-font-size: 14px;
+  }
+}
+
+/* ===== EXTRA SMALL PHONES (320px and below) ===== */
+@media (max-width: 320px) {
+  .page-header {
+    padding: 2rem 0.8rem;
   }
 
   .page-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
-  .tagline {
-    font-size: 1.1rem;
+  .hero {
+    padding: 2.5rem 0.8rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  section {
+    padding: 2rem 0.8rem;
+  }
+
+  section h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    padding: 0.85rem 1.4rem;
+    font-size: 0.82rem;
+  }
+
+  .services-grid,
+  .visa-types-grid,
+  .regions-grid,
+  .featured-grid,
+  .approach-grid,
+  .cares-grid {
+    gap: 1rem;
+  }
+
+  .service-card,
+  .visa-type-card,
+  .region-card,
+  .care-card,
+  .approach-card {
+    padding: 1.5rem 1.2rem;
   }
 }

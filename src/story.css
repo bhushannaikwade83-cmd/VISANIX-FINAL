@@ -986,14 +986,146 @@ a.btn {
   transform: translateY(-2px);
 }
 
+/* ===== TABLET RESPONSIVE (768px and below) ===== */
 @media (max-width: 768px) {
   .s8 .cta-buttons {
     max-width: 100%;
+    padding: 0 1rem;
   }
 
   .s8 .btn {
-    padding: 0.85rem 1.5rem;
-    font-size: 0.95rem;
+    padding: 0.95rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .s8-logo {
+    width: 110px !important;
+    height: 110px !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .s8-copy h2 {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+  }
+
+  .s8-copy p {
+    font-size: clamp(1rem, 2.2vw, 1.2rem) !important;
+  }
+}
+
+/* ===== MOBILE RESPONSIVE (480px and below) ===== */
+@media (max-width: 480px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .scene.s8 {
+    padding: 1rem !important;
+    min-height: 100vh !important;
+  }
+
+  .scene.s8 .scene-inner {
+    padding: 2rem 1rem !important;
+  }
+
+  .s8-logo {
+    width: 90px !important;
+    height: 90px !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1.2rem !important;
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .s8-copy {
+    padding: 0 !important;
+  }
+
+  .s8-copy h2 {
+    font-size: clamp(1.6rem, 4.5vw, 2.5rem) !important;
+    margin-bottom: 1rem !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .s8-copy p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem) !important;
+    margin: 0 auto 1.5rem !important;
+  }
+
+  .s8 .cta-buttons {
+    gap: 0.9rem !important;
+    margin-top: 2rem !important;
+    padding: 0 0.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .s8 .btn {
+    padding: 1rem 1.6rem !important;
+    font-size: 0.88rem !important;
+    border-radius: 12px !important;
+    min-height: 48px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .s8 .btn:active {
+    transform: scale(0.97) !important;
+  }
+
+  .s8 .btn-primary {
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .s8 .btn-primary:hover {
+    box-shadow: 0 16px 40px rgba(37, 99, 235, 0.35) !important;
+  }
+
+  .s8 .btn-ghost:hover,
+  .s8 .btn-secondary:hover {
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  .orb-1 {
+    width: 280px !important;
+    height: 280px !important;
+    left: -100px !important;
+    top: 5% !important;
+  }
+
+  .orb-2 {
+    width: 240px !important;
+    height: 240px !important;
+    right: -80px !important;
+    bottom: 0% !important;
+  }
+}
+
+/* ===== EXTRA SMALL PHONES (320px and below) ===== */
+@media (max-width: 320px) {
+  .s8-logo {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 1.3rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .s8-copy h2 {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .s8-copy p {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .s8 .cta-buttons {
+    gap: 0.7rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .s8 .btn {
+    padding: 0.9rem 1.3rem !important;
+    font-size: 0.8rem !important;
   }
 }
 
