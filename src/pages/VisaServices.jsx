@@ -1,4 +1,6 @@
-export default function VisaServices() {
+import { NavLink } from '../utils/navLink'
+
+export default function VisaServices({ onNavigate }) {
   return (
     <main id="visa-services" className="page visa-services-page">
       <section className="page-header">
@@ -61,7 +63,7 @@ export default function VisaServices() {
 
       <section className="visa-cta">
         <div className="container">
-          <a href="/contact" className="btn btn-primary btn-large">Start Your Visa Journey</a>
+          <NavLink href="/contact" onClick={onNavigate} className="btn btn-primary btn-large">Start Your Visa Journey</NavLink>
         </div>
       </section>
     </main>

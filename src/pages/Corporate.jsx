@@ -1,4 +1,6 @@
-export default function Corporate() {
+import { NavLink } from '../utils/navLink'
+
+export default function Corporate({ onNavigate }) {
   return (
     <main id="corporate" className="page corporate-page">
       <section className="page-header">
@@ -25,7 +27,7 @@ export default function Corporate() {
             <li>Related documentation support</li>
           </ul>
 
-          <a href="/contact" className="btn btn-primary">Enquire for Corporate Visa Services</a>
+          <NavLink href="/contact" onClick={onNavigate} className="btn btn-primary">Enquire for Corporate Visa Services</NavLink>
         </div>
       </section>
 
@@ -52,7 +54,7 @@ export default function Corporate() {
             <p><strong>You manage the journey. We manage the visa process.</strong></p>
           </div>
 
-          <a href="/contact" className="btn btn-primary">Partner With VisaNix</a>
+          <NavLink href="/contact" onClick={onNavigate} className="btn btn-primary">Partner With VisaNix</NavLink>
         </div>
       </section>
     </main>

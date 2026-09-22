@@ -1,6 +1,12 @@
 import './Footer.css'
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
+  const handleNavClick = (page) => {
+    if (onNavigate) {
+      onNavigate(page)
+    }
+  }
+
   return (
     <footer className="website-footer">
       <div className="footer-container">
@@ -14,29 +20,29 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/values">Our Values</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/visa-services">Visa Services</a></li>
-              <li><a href="/destinations">Destinations</a></li>
-              <li><a href="/apostille">Apostille & Attestation</a></li>
-              <li><a href="/corporate">Corporate & Partners</a></li>
-              <li><a href="/trouvaille">Trouvaille</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/contact">Contact Us</a></li>
+              <li><button onClick={() => handleNavClick('home')} className="footer-link">Home</button></li>
+              <li><button onClick={() => handleNavClick('values')} className="footer-link">Our Values</button></li>
+              <li><button onClick={() => handleNavClick('about')} className="footer-link">About Us</button></li>
+              <li><button onClick={() => handleNavClick('visa-services')} className="footer-link">Visa Services</button></li>
+              <li><button onClick={() => handleNavClick('destinations')} className="footer-link">Destinations</button></li>
+              <li><button onClick={() => handleNavClick('apostille')} className="footer-link">Apostille & Attestation</button></li>
+              <li><button onClick={() => handleNavClick('corporate')} className="footer-link">Corporate & Partners</button></li>
+              <li><button onClick={() => handleNavClick('trouvaille')} className="footer-link">Trouvaille</button></li>
+              <li><button onClick={() => handleNavClick('faq')} className="footer-link">FAQ</button></li>
+              <li><button onClick={() => handleNavClick('contact')} className="footer-link">Contact Us</button></li>
             </ul>
           </div>
 
           <div className="footer-section">
             <h4>Services</h4>
             <ul>
-              <li><a href="/visa-services">Visa Facilitation</a></li>
-              <li><a href="/visa-services">Visa Documentation</a></li>
-              <li><a href="/visa-services">Visa Application Assistance</a></li>
-              <li><a href="/apostille">Apostille</a></li>
-              <li><a href="/apostille">Attestation</a></li>
-              <li><a href="/corporate">Corporate Visa Services</a></li>
-              <li><a href="/corporate">Travel Partner Support</a></li>
+              <li><button onClick={() => handleNavClick('visa-services')} className="footer-link">Visa Facilitation</button></li>
+              <li><button onClick={() => handleNavClick('visa-services')} className="footer-link">Visa Documentation</button></li>
+              <li><button onClick={() => handleNavClick('visa-services')} className="footer-link">Visa Application Assistance</button></li>
+              <li><button onClick={() => handleNavClick('apostille')} className="footer-link">Apostille</button></li>
+              <li><button onClick={() => handleNavClick('apostille')} className="footer-link">Attestation</button></li>
+              <li><button onClick={() => handleNavClick('corporate')} className="footer-link">Corporate Visa Services</button></li>
+              <li><button onClick={() => handleNavClick('corporate')} className="footer-link">Travel Partner Support</button></li>
             </ul>
           </div>
 

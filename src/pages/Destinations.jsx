@@ -1,4 +1,6 @@
-export default function Destinations() {
+import { NavLink } from '../utils/navLink'
+
+export default function Destinations({ onNavigate }) {
   return (
     <main id="destinations" className="page destinations-page">
       <section className="page-header">
@@ -40,7 +42,7 @@ export default function Destinations() {
         <div className="container">
           <h2>Can't Find Your Destination?</h2>
           <p>If you don't see your destination listed, please contact us and we'll help you.</p>
-          <a href="/contact" className="btn btn-primary">Contact Us</a>
+          <NavLink href="/contact" onClick={onNavigate} className="btn btn-primary">Contact Us</NavLink>
         </div>
       </section>
     </main>

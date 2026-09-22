@@ -49,8 +49,8 @@ function WebsiteApp({ currentPage, onNavigate }) {
   return (
     <div className="website-container">
       <Navigation currentPage={currentPage} onNavigate={onNavigate} />
-      <PageComponent />
-      <Footer />
+      <PageComponent onNavigate={onNavigate} />
+      <Footer onNavigate={onNavigate} />
     </div>
   )
 }
@@ -78,6 +78,12 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }, [showWebsite])
+
+  useEffect(() => {
+    if (showWebsite) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [currentPage])
 
   return (
     <div className="app">

@@ -1,4 +1,4 @@
-export default function Values() {
+export default function Values({ onNavigate }) {
   return (
     <main id="values" className="page values-page">
       <section className="page-header">

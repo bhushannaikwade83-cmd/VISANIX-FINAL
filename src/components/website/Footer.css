@@ -41,13 +41,21 @@
   margin: 0.5rem 0;
 }
 
-.footer-section a {
+.footer-section a,
+.footer-link {
   color: #aaa;
   text-decoration: none;
   transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
 }
 
-.footer-section a:hover {
+.footer-section a:hover,
+.footer-link:hover {
   color: #4a90e2;
 }
 

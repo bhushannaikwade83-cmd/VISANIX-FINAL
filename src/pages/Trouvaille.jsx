@@ -1,4 +1,4 @@
-export default function Trouvaille() {
+export default function Trouvaille({ onNavigate }) {
   return (
     <main id="trouvaille" className="page trouvaille-page">
       <section className="page-header">

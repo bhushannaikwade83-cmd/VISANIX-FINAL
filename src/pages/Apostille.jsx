@@ -1,4 +1,6 @@
-export default function Apostille() {
+import { NavLink } from '../utils/navLink'
+
+export default function Apostille({ onNavigate }) {
   return (
     <main id="apostille" className="page apostille-page">
       <section className="page-header">
@@ -48,7 +50,7 @@ export default function Apostille() {
 
       <section className="apostille-cta">
         <div className="container">
-          <a href="/contact" className="btn btn-primary btn-large">Get Apostille & Attestation Assistance</a>
+          <NavLink href="/contact" onClick={onNavigate} className="btn btn-primary btn-large">Get Apostille & Attestation Assistance</NavLink>
         </div>
       </section>
     </main>

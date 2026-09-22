@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from '../utils/navLink'
 
 const faqs = [
   {
@@ -51,7 +52,7 @@ const faqs = [
   }
 ]
 
-export default function FAQ() {
+export default function FAQ({ onNavigate }) {
   return (
     <main id="faq" className="page faq-page">
       <section className="page-header">
@@ -75,7 +76,7 @@ export default function FAQ() {
         <div className="container">
           <h2>Still Have Questions?</h2>
           <p>Feel free to reach out to our team — we're here to help.</p>
-          <a href="/contact" className="btn btn-primary">Contact Us</a>
+          <NavLink href="/contact" onClick={onNavigate} className="btn btn-primary">Contact Us</NavLink>
         </div>
       </section>
     </main>

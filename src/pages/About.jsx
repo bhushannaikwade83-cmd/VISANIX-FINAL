@@ -1,4 +1,6 @@
-export default function About() {
+import { NavLink } from '../utils/navLink'
+
+export default function About({ onNavigate }) {
   return (
     <main id="about" className="page about-page">
       <section className="page-header">
@@ -65,7 +67,7 @@ export default function About() {
             <p>Trouvaille focuses on planning and arranging your travel. VisaNix focuses on your visa and documentation.</p>
           </div>
 
-          <a href="/trouvaille" className="btn btn-primary">Learn About Trouvaille</a>
+          <NavLink href="/trouvaille" onClick={onNavigate} className="btn btn-primary">Learn About Trouvaille</NavLink>
         </div>
       </section>
     </main>

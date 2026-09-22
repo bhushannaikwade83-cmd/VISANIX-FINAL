@@ -5,7 +5,7 @@ const CONTACT_PHONE = '+91 XXXX XXXX XX' // Update with actual number
 const OFFICE_ADDRESS = 'Office No 35, New Cine Prime Mall, Beverly Park, Kanakiya Road, Mira Road East, Thane, Maharashtra, 401107'
 const WEBSITE = 'www.visanix.in'
 
-export default function Contact() {
+export default function Contact({ onNavigate }) {
   const [formData, setFormData] = useState({
     name: '',
     mobileNumber: '',

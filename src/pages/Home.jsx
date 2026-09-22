@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { NavLink } from '../utils/navLink'
 
-export default function Home() {
+export default function Home({ onNavigate }) {
   return (
     <main id="home" className="page home-page">
       {/* HERO SECTION */}
@@ -113,7 +114,7 @@ export default function Home() {
             />
           </div>
 
-          <a href="/values" className="btn btn-primary">Discover Our Values</a>
+          <NavLink href="/values" onClick={onNavigate} className="btn btn-primary">Discover Our Values</NavLink>
         </div>
       </section>
 
@@ -122,7 +123,7 @@ export default function Home() {
         <div className="container">
           <h2>Ready To Start Your Visa Journey?</h2>
           <p>Don't let complicated paperwork stand between you and your destination. Let VisaNix simplify the process.</p>
-          <a href="/contact" className="btn btn-primary btn-large">Get Visa Assistance</a>
+          <NavLink href="/contact" onClick={onNavigate} className="btn btn-primary btn-large">Get Visa Assistance</NavLink>
         </div>
       </section>
     </main>
