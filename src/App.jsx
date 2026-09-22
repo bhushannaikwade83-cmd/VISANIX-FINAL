@@ -82,8 +82,9 @@ export default function App() {
   useEffect(() => {
     if (showWebsite) {
       window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.history.pushState(null, '', currentPage === 'home' ? '/' : `/${currentPage}`)
     }
-  }, [currentPage])
+  }, [currentPage, showWebsite])
 
   return (
     <div className="app">
