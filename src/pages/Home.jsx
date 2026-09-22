@@ -31,33 +31,43 @@ export default function Home({ onNavigate }) {
       {/* SERVICES SECTION */}
       <section id="services" className="services">
         <div className="container">
-          <h2>Our Services</h2>
+          <div className="section-header">
+            <h2>Our Services</h2>
+            <p className="section-subtitle">Comprehensive visa solutions tailored to your needs</p>
+          </div>
           <div className="services-grid">
-            <ServiceCard 
+            <ServiceCard
+              icon="✈️"
               title="Visa Facilitation"
               description="Professional assistance throughout the visa application process, from understanding requirements to submission and tracking."
             />
-            <ServiceCard 
+            <ServiceCard
+              icon="📋"
               title="Documentation Support"
               description="Guidance in preparing, organising and reviewing documents required for your visa application."
             />
-            <ServiceCard 
+            <ServiceCard
+              icon="✍️"
               title="Visa Application Assistance"
               description="Support with application forms, supporting documents and applicable application requirements."
             />
-            <ServiceCard 
+            <ServiceCard
+              icon="🔖"
               title="Apostille Services"
               description="Assistance with Apostille requirements for documents intended for use internationally."
             />
-            <ServiceCard 
+            <ServiceCard
+              icon="🏛️"
               title="Attestation Services"
               description="Support with document attestation and applicable legalisation procedures."
             />
-            <ServiceCard 
+            <ServiceCard
+              icon="🏢"
               title="Corporate Visa Services"
               description="Structured visa assistance for companies, employees, executives and business travellers."
             />
-            <ServiceCard 
+            <ServiceCard
+              icon="🌍"
               title="Travel Partner Support"
               description="Specialised visa processing and documentation support for travel agencies, tour operators and other travel partners."
             />
@@ -130,9 +140,10 @@ export default function Home({ onNavigate }) {
   )
 }
 
-function ServiceCard({ title, description }) {
+function ServiceCard({ icon, title, description }) {
   return (
     <div className="service-card">
+      <div className="service-icon">{icon}</div>
       <h3>{title}</h3>
       <p>{description}</p>
     </div>
@@ -142,8 +153,10 @@ function ServiceCard({ title, description }) {
 function CareCard({ letter, title, description }) {
   return (
     <div className="care-card">
-      <div className="care-letter">{letter}</div>
-      <h3>{title}</h3>
+      <div className="care-header">
+        <div className="care-letter">{letter}</div>
+        <h3>{title}</h3>
+      </div>
       <p>{description}</p>
     </div>
   )
